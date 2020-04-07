@@ -1,0 +1,62 @@
+Below you will find a set of working statements (with the exception of those that require specific id values, you should fill those in at runtime) that will add, query, delete, and modify logos stored in MongoDB.
+
+
+
+# Creates and adds new logo to collection
+mutation{
+  addLogo (color: "#030101",  text: "hello",  fontSize: 12, background: "purple", borderColor: "black", borderWidth: 1, padding: 5, margin: 3) {
+  	text,
+    color
+  }
+}
+
+
+
+# Displays all saved logos in db
+query{
+  logos{
+    _id,
+    text,
+    color,
+    fontSize,
+    background,
+    borderWidth,
+    padding,
+    margin
+  }
+}
+
+
+# Searches for logo by id and displays its attributes
+query{
+  logo(id: <id of logo to be fetched>){
+    text,
+    color,
+    fontSize,
+    background,
+    borderWidth,
+    padding,
+    margin
+  }
+}
+
+
+# Updates logo (determined by provided id)
+mutation{
+  updateLogo ( id: <id of stored logo in db>,  text: "Hello World!", color: "black", fontSize: 17, background: "purple", borderColor: "black", borderWidth: 1, padding: 5, margin: 3) {
+  	_id,
+    text,
+    color,
+    lastUpdate
+  }
+}
+
+
+# Deletes logo from MongoDB Collection
+mutation{
+  removeLogo(id: <id of logo to delete>){
+   _id
+  }
+}
+ 
+ 
