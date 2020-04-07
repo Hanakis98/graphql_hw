@@ -24,6 +24,24 @@ var logoType = new GraphQLObjectType({
             },
             fontSize: {
                 type: GraphQLInt
+            }, 
+            background: {
+                type: GraphQLString
+            },
+            color: {
+                type: GraphQLString
+            },
+            borderRadius: {
+                type: GraphQLInt
+            },
+            borderWidth: {
+                type: GraphQLInt
+            },
+            padding: {
+                type: GraphQLInt
+            },
+            margin: {
+                type: GraphQLInt
             },
             lastUpdate: {
                 type: GraphQLDate
@@ -31,6 +49,7 @@ var logoType = new GraphQLObjectType({
         }
     }
 });
+
 
 var queryType = new GraphQLObjectType({
     name: 'Query',
@@ -81,6 +100,21 @@ var mutation = new GraphQLObjectType({
                     },
                     fontSize: {
                         type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    background: {
+                        type: new GraphQLNonNull(GraphQLString)
+                    },
+                    borderColor: {
+                        type: new GraphQLNonNull(GraphQLString)
+                    },
+                    borderWidth: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    padding: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    margin: {
+                        type: new GraphQLNonNull(GraphQLInt)
                     }
                 },
                 resolve: function (root, params) {
@@ -106,6 +140,21 @@ var mutation = new GraphQLObjectType({
                         type: new GraphQLNonNull(GraphQLString)
                     },
                     fontSize: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    background: {
+                        type: new GraphQLNonNull(GraphQLString)
+                    },
+                    borderColor: {
+                        type: new GraphQLNonNull(GraphQLString)
+                    },
+                    borderWidth: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    padding: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
+                    margin: {
                         type: new GraphQLNonNull(GraphQLInt)
                     }
                 },
