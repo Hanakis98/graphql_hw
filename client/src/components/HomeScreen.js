@@ -16,12 +16,19 @@ const GET_LOGOS = gql`
 
 class HomeScreen extends Component {
 
+
+    
+
     render() {
         return (
             <Query pollInterval={500} query={GET_LOGOS}>
                 {({ loading, error, data }) => {
                     if (loading) return 'Loading...';
                     if (error) return `Error! ${error.message}`;
+
+                  
+                    // Show most recently updated logos first
+                   data.logos.sort( function(a, b) {return Date.parse(b.lastUpdate) - Date.parse(a.lastUpdate) });
 
                     return (
                         <div className="container row">

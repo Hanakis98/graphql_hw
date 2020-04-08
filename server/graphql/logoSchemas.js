@@ -68,6 +68,16 @@ var queryType = new GraphQLObjectType({
                     return logos
                 }
             },
+            logosOrdered: { //returns sorted list where most recently updated logo is returned first
+                type: new GraphQLList(logoType),
+                resolve: function () {
+                    const logos = LogoModel.find().sort([["lastUpdate", -1]]).exec()
+                    if (!logos) {
+                        throw new Error('Error')
+                    }
+                    return logos
+                }
+            },
             logo: {
                 type: logoType,
                 args: {
