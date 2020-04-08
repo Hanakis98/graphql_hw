@@ -11,6 +11,12 @@ const GET_LOGO = gql`
             text
             color
             fontSize
+            background
+            borderColor
+            borderWidth
+            borderRadius
+            margin
+            padding
             lastUpdate
         }
     }
@@ -48,8 +54,20 @@ class ViewLogoScreen extends Component {
                                         <dd>{data.logo.text}</dd>
                                         <dt>Color:</dt>
                                         <dd>{data.logo.color}</dd>
+                                        <dt>Background:</dt>
+                                        <dd>{data.logo.background}</dd>
                                         <dt>Font Size:</dt>
-                                        <dd>{data.logo.fontSize}</dd>
+                                        <dd>{data.logo.fontSize}px</dd>
+                                        <dt>Border Radius:</dt>
+                                        <dd>{data.logo.borderRadius}</dd>
+                                        <dt>Border Width:</dt>
+                                        <dd>{data.logo.borderWidth}px</dd>
+                                        <dt>Border Color:</dt>
+                                        <dd>{data.logo.borderColor}</dd>
+                                        <dt>Margin:</dt>
+                                        <dd>{data.logo.margin}px</dd>
+                                        <dt>Padding:</dt>
+                                        <dd>{data.logo.padding}px</dd>
                                         <dt>Last Updated:</dt>
                                         <dd>{data.logo.lastUpdate}</dd>
                                     </dl>

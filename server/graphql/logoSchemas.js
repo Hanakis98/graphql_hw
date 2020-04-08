@@ -31,6 +31,9 @@ var logoType = new GraphQLObjectType({
             color: {
                 type: GraphQLString
             },
+            borderColor: {
+                type: GraphQLString
+            },
             borderRadius: {
                 type: GraphQLInt
             },
@@ -110,6 +113,9 @@ var mutation = new GraphQLObjectType({
                     borderWidth: {
                         type: new GraphQLNonNull(GraphQLInt)
                     },
+                    borderRadius: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
                     padding: {
                         type: new GraphQLNonNull(GraphQLInt)
                     },
@@ -151,6 +157,9 @@ var mutation = new GraphQLObjectType({
                     borderWidth: {
                         type: new GraphQLNonNull(GraphQLInt)
                     },
+                    borderRadius: {
+                        type: new GraphQLNonNull(GraphQLInt)
+                    },
                     padding: {
                         type: new GraphQLNonNull(GraphQLInt)
                     },
@@ -159,7 +168,20 @@ var mutation = new GraphQLObjectType({
                     }
                 },
                 resolve(root, params) {
-                    return LogoModel.findByIdAndUpdate(params.id, { text: params.text, color: params.color, fontSize: params.fontSize, lastUpdate: new Date() }, function (err) {
+                    return LogoModel.findByIdAndUpdate(params.id, 
+                        { 
+                        text: params.text, 
+                        color: params.color, 
+                        fontSize: params.fontSize, 
+                        background: params.background, 
+                        borderColor: params.borderColor,
+                         borderWidth: params.borderWidth, 
+                         borderRadius: params.borderRadius, 
+                         padding: params.padding, 
+                         margin: params.margin, 
+                         lastUpdate: new Date() 
+                        }, 
+                        function (err) {
                         if (err) return next(err);
                     });
                 }
