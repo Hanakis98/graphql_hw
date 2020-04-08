@@ -92,7 +92,8 @@ class EditLogoScreen extends Component {
                                                     <label htmlFor="text">Text:</label>
                                                     <input type="text" className="form-control" name="text" ref={node => {
                                                         text = node;
-                                                    }} placeholder="Text" defaultValue={data.logo.text} />
+                                                    }}  placeholder="Text"  defaultValue={data.logo.text} />
+
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="color">Color:</label>
@@ -103,7 +104,7 @@ class EditLogoScreen extends Component {
            
                                                 <div className="form-group">
                                                     <label htmlFor="background">Background:</label>
-                                                    <input type="color" className="form-control" name="background" ref={node => {
+                                                    <input type="color" className="form-control" name="background"  ref={node => {
                                                         background = node;
                                                     }}  defaultValue={data.logo.background} />
                                                 </div>

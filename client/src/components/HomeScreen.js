@@ -36,18 +36,17 @@ class HomeScreen extends Component {
                                 <h3>Recent Work</h3>
                                 {data.logos.map((logo, index) => (
                                     <div key={index} className='home_logo_link'
-                                        style={{ cursor: "pointer" }}>
-                                        <Link to={`/view/${logo._id}`}>{logo.text}</Link>
+                                        style={{ cursor: "pointer"}}>
+                                        <Link to={`/view/${logo._id}`}style={{color:"black",textDecoration: "none"}}>{logo.text}</Link>
                                     </div>
                                 ))}
                             </div>
                             <div className="col s8">
                                 <div id="home_banner_container">
-                                    @todo<br />
-                                    List Maker
+                                    Logo Maker
                                 </div>
                                 <div>
-                                    <Link id="add_logo_button" to="/create">Add Logo</Link>
+                                   <button><Link id="add_logo_button" to="/create" > Create New Logo</Link></button>
                                 </div>
                             </div>
                         </div>

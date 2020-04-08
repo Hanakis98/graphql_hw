@@ -49,7 +49,7 @@ class CreateLogoScreen extends Component {
                             <div className="panel-body">
                                 <form onSubmit={e => {
                                     e.preventDefault();
-                                    if(text.value.trim().length == 0){
+                                    if(text.value.trim().length === 0){
                                         alert("You must enter text to create this logo.")
                                         console.log("Could not create logo -- user didn't enter text");
                                         return false;
@@ -82,7 +82,7 @@ class CreateLogoScreen extends Component {
                                                 </div>
                                                 <div className="form-group">
                                                     <label htmlFor="color">Color:</label>
-                                                    <input type="color" className="form-control" name="color" ref={node => {
+                                                    <input type="color" className="form-control" name="color" style={{width:"50px"}} ref={node => {
                                                         color = node;
                                                     }} placeholder="Color" />
                                                 </div>
