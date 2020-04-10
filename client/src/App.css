@@ -42,3 +42,15 @@ text-decoration: none;
   
 
 }
+
+.form-group{
+display: inline;
+
+}
+.side{
+  border-style:solid;
+  border-width: 10px;
+color: white;
+padding: 20px;
+  background-color:rgb(90, 116, 126);
+width: 220px;}
