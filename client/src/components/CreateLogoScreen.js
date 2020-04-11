@@ -32,7 +32,21 @@ const ADD_LOGO = gql`
 `;
 
 class CreateLogoScreen extends Component {
+    constructor(props){
+        super(props);
+        this.state={text:"Logo",color:"0",fontSize:"12",backgroundColor:"white",borderColor:"Black",borderRadius:"0",borderWidth:"0",margin:"0",padding:"0"}
+        
+    }
 
+    componentWillMount(){
+
+    }
+
+    updateState(e,attribute,isNumber){
+        this.state[attribute]= isNumber ?parseInt(e.target.value):e.target.value;
+        this.setState({})
+
+    }
     render() {
         let text, color, fontSize, background,borderColor, borderRadius, borderWidth, padding, margin;
         return (
@@ -74,115 +88,181 @@ class CreateLogoScreen extends Component {
                                     margin.value = "";
 
                                 }}>
-                                    <div className="side">
-                                   <div className="form-group">
-                                       <div className="col s7">
-                                       <div className="row">
-                                                    <label htmlFor="text">Text:</label>
-                                                    <input type="text" className="form-control" name="text" ref={node => {
-                                                        text = node;
-                                                    }} placeholder="Text"  />
-                                                </div>
+                                    
+                                    <div className="row">
+                                        
+
+                                       
+                                                                                 
+                                          
+
+
+                                        <div className="col-sm-7 sideContainer">
+                                        <div className="side" >
+                                        <form onSubmit={e => {
+                                            e.preventDefault();
+                                         
+
+
+                                        }}>
+                                            <div className="form-group">
+                                            <div>
+
+                                                <div className="row">
+
+                                                <label htmlFor="text">Text:</label>
+                                                <input type="text" className="f" name="text" onChange={e => {this.updateState(e, "text", false) } }  style={{width:"150px",height:"16pt"}}  ref={node => {
+                                                    text = node;
+                                                }}  placeholder="Text"  defaultValue={"Logo"} />
+
                                                     </div>
-                                                    </div>
+                                            </div>
+                                            </div>
+
+
+                                            <div className="form-group">
+                                            <div className="col s7">
+
+                                            <div className="row">
+
+                                                <label htmlFor="color">Color:</label>
+                                                <input type="color" className="f" name="color" onChange={ e => {this.updateState(e, "color", false) } } style={{width:"50px",height:"16pt"}}style={{padding:"0px",width:"20px",height:"20pt"}} ref={node => {
+                                                    color = node;
+                                                }} placeholder="Color" defaultValue={0} />
+                                            </div>
+                                            </div>
+                                            </div>
+
+                                            <div className="form-group">
+                                            <div className="col s7">
+
+                                            <div className="row">
+
+                                                <label htmlFor="background">Background:</label>
+                                                <input type="color" className="f" name="background" onChange={ e => {this.updateState(e, "backgroundColor", false) } } style={{padding:"0px",width:"20px",height:"20pt"}}  ref={node => {
+                                                    background = node;
+                                                }}  defaultValue={"#FFFFFF"} />
+                                            </div>
+                                            </div>
+                                            </div>
 
 
 
-                                   <div className="form-group">
-                                       <div className="col s7">
-                                       <div className="row">
-                                                    <label htmlFor="color">Color:</label>
-                                                    <input type="color" className="form-control" name="color" style={{width:"50px"}} ref={node => {
-                                                        color = node;
-                                                    }} placeholder="Color" />
-                                                </div>
-                                                </div>
-                                                </div>
-           
-                                   <div className="form-group">
-                                       <div className="col s7">
-                                       <div className="row">                                                    <label htmlFor="background">Background:</label>
-                                                    <input type="color" className="form-control" name="background" ref={node => {
-                                                        background = node;
-                                                    }}  defaultValue="#FFFFFF" />
-                                                </div>
-                                                    </div>
-                                                    </div>
+                                            <div className="form-group">
+                                            <div className="col s7">
+                                            <div className="row">
+
+                                                <label htmlFor="fontSize">Font Size: </label>
+                                                <input type="range" min = "0" max = "72" className="f" name="fontSize" onChange={ e => {this.updateState(e, "fontSize", true) } }style={{width:"50px",height:"16pt"}} ref={node => {
+                                                    fontSize = node;
+                                                }} placeholder="Font Size" defaultValue={12} />
+                                            </div>
+                                            </div>
+                                            </div>
 
 
 
+                                            <div className="form-group">
+                                            <div className="col s7">
+                                            <div className="row">
+
+                                                <label htmlFor="borderColor">Border Color:</label>
+                                                <input type="color" className="f" name="borderColor" onChange={ e => {this.updateState(e, "borderColor", false) } } style={{padding:"0px",width:"20px",height:"20pt"}} ref={node => {
+                                                    borderColor = node;
+                                                }}  defaultValue={0} />
+                                            </div>
+                                            </div>
+                                            </div>
+                                            
+                                           
+
+                                            <div className="form-group">
+                                            <div className="col s7">
+                                            <div className="row">
+
+                                                <label htmlFor="borderRadius">Border Radius:</label>
+                                                <input type= "range" className="f" name="borderRadius" onChange={ e => {this.updateState(e, "borderRadius", true) } } style={{width:"50px",height:"16pt"}} ref={node => {
+                                                    borderRadius = node;
+                                                    
+                                                }}  defaultValue={0} min = "0" max = "20" />
+                                            </div>
+                                            </div>
+                                            </div>
+
+                                            <div className="form-group">
+                                            <div className="col s7">
+
+                                            <div className="row">
+
+                                                <label htmlFor="borderWidth">Border Width:</label>
+                                                <input type="range" min = "0" max = "30" className="f" name="borderWidth" onChange={ e => {this.updateState(e, "borderWidth", true) } } style={{width:"50px",height:"16pt"}} ref={node => {
+                                                    borderWidth = node;
+                                                }}  defaultValue={0} />
+                                            </div>
+                                            </div>
+                                            </div>
+
+                                            <div className="form-group">
+                                            <div className="col s7">
+
+                                            <div className="row">
+                                                <label htmlFor="margin">Margin:</label>
+                                                <input type="range" min = "0" max = "20" className="f" name="margin" onChange={ e => {this.updateState(e, "margin", true) } } style={{width:"50px",height:"16pt"}} ref={node => {
+                                                    margin = node;
+                                                }}  defaultValue={0} />
+                                            </div>
+                                            </div>
+                                            </div>
 
 
+                                            <div className="form-group">
+                                            <div className="col s7">
+
+                                            <div className="row">
+                                                <label htmlFor="borderWidth">Padding: </label>
+                                                <input type="range" className="f" name="padding" onChange={ e => {this.updateState(e, "padding", true) } } style={{width:"50px",height:"16pt"}}  ref={node => {
+                                                    padding = node;
+   
+                                                }} defaultValue={0} />
+
+                                            </div>
+                                            <button type="submit" className="btn btn-success" style={{display:"inline-block"}}>Submit</button>
+
+                                            </div>
+                                            </div>
+                                            </form>
+
+                                            </div>
+                                            </div> 
+                                            
 
 
-                                   <div className="form-group">
-                                       <div className="col s7">
-                                       <div className="row">                                                    <label htmlFor="fontSize">Font Size:</label>
-                                                    <input type="text" min="10" max="80"  className="form-control" name="fontSize" ref={node => {
-                                                        fontSize = node;
-                                                    }} defaultValue="12" />
-                                                </div>
-                                                </div>
-                                                </div>
+                                         <div className="col-sm-5 logoContainer">
+                                            <div id=" logo" style={{float:"left",
+                                           color: this.state.color, 
+                                                borderStyle:"solid" , 
+                                                background : (this.state.backgroundColor ), 
+                                                margin: ( this.state.margin) +5 + "px",
+                                                 padding: (this.state.padding ) + "px",
+                                                  borderColor: (this.state.borderColor ) , 
+                                                  fontSize: (this.state.fontSize ) + "px" , 
+                                                  borderWidth: (this.state.borderWidth ) + "px" , 
+                                                   borderRadius:  ( this.state.borderRadius )+ "px"}}>{this.state.text}
+                                                   </div>
+                                                   </div>
 
-                                   <div className="form-group">
-                                       <div className="col s7">
-                                       <div className="row">                                                    <label htmlFor="borderColor">Border Color:</label>
-                                                    <input type="color" className="form-control" name="borderColor" ref={node => {
-                                                        borderColor = node;
-                                                    }}  defaultValue="#FFFFFF" />
-                                                                                               </div>
-                                                </div>
-                                                </div>
-
-                                   <div className="form-group">
-                                       <div className="col s7">
-                                       <div className="row">                                                    <label htmlFor="borderRadius">Border Radius:</label>
-                                                    <input type="text" className="form-control" name="borderRadius" ref={node => {
-                                                        borderRadius = node;
-                                                    }}  defaultValue="0" />
-                                                                                               </div>
-                                                </div>
-                                                </div>
-
-                                   <div className="form-group">
-                                       <div className="col s7">
-                                       <div className="row">                                                    <label htmlFor="borderWidth">Border Width:</label>
-                                                    <input type="text"  className="form-control" name="borderWidth" ref={node => {
-                                                        borderWidth = node;
-                                                    }}  defaultValue="0" />
-                                                                                                </div>
-                                                </div>
-                                                </div>
-                    
-                                   <div className="form-group">
-                                       <div className="col s7">
-                                       <div className="row">                                                    <label htmlFor="margin">Margin:</label>
-                                                    <input type="text"  className="form-control" name="margin" ref={node => {
-                                                        margin = node;
-                                                    }}  defaultValue="0" />
-                                              </div>
-                                                 </div>
-                                                </div>
+                                                   
+                                           
 
 
-                                   <div className="form-group">
-                                       <div className="col s7">
-                                       <div className="row">                                                    <label htmlFor="borderWidth">Padding:</label>
-                                                    <input type="text" className="form-control" name="padding" ref={node => {
-                                                        padding = node;
-                                                    }}  defaultValue="0"/>
-                                                </div>
-                                                </div>
-                                                </div>
+                                          
+                                        {loading && <p>Loading...</p>}
+                                        {error && <p>Error :( Please try again</p>}
+                                    </div>
 
 
-                                           </div>     
-
-                                    <button type="submit" className="btn btn-success">Submit</button>
                                 </form>
-                                {loading && <p>Loading...</p>}
-                                {error && <p>Error :( Please try again</p>}
+                              
                             </div>
                         </div>
                     </div>

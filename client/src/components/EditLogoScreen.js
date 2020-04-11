@@ -55,6 +55,7 @@ class EditLogoScreen extends Component {
     constructor(props){
         super(props);
         this.state={}
+        
     }
 
     componentWillMount(){
@@ -110,7 +111,7 @@ class EditLogoScreen extends Component {
                                                     <div className="row">
 
                                                     <label htmlFor="text">Text:</label>
-                                                    <input type="text" className="f" name="text" style={{width:"50px",height:"16pt"}}  ref={node => {
+                                                    <input type="text" className="f" name="text" onChange={e => {this.updateState(e, "text", false) } }  style={{width:"150px",height:"16pt"}}  ref={node => {
                                                         text = node;
                                                     }}  placeholder="Text"  defaultValue={data.logo.text} />
 
@@ -152,7 +153,7 @@ class EditLogoScreen extends Component {
                                                 <div className="row">
 
                                                     <label htmlFor="fontSize">Font Size: </label>
-                                                    <input type="text"  className="f" name="fontSize" onChange={ e => {this.updateState(e, "fontSize", true) } }style={{width:"50px",height:"16pt"}} ref={node => {
+                                                    <input type="range" min = "0" max = "72" className="f" name="fontSize" onChange={ e => {this.updateState(e, "fontSize", true) } }style={{width:"50px",height:"16pt"}} ref={node => {
                                                         fontSize = node;
                                                     }} placeholder="Font Size" defaultValue={data.logo.fontSize} />
                                                 </div>
@@ -183,7 +184,7 @@ class EditLogoScreen extends Component {
                                                     <input type= "range" className="f" name="borderRadius" onChange={ e => {this.updateState(e, "borderRadius", true) } } style={{width:"50px",height:"16pt"}} ref={node => {
                                                         borderRadius = node;
                                                         
-                                                    }}  defaultValue={data.logo.borderRadius} min = "0" max = "10" />
+                                                    }}  defaultValue={data.logo.borderRadius} min = "0" max = "20" />
                                                 </div>
                                                 </div>
                                                 </div>
@@ -194,7 +195,7 @@ class EditLogoScreen extends Component {
                                                 <div className="row">
 
                                                     <label htmlFor="borderWidth">Border Width:</label>
-                                                    <input type="text" className="f" name="borderWidth" onChange={ e => {this.updateState(e, "borderWidth", true) } } style={{width:"50px",height:"16pt"}} ref={node => {
+                                                    <input type="range" min = "0" max = "30" className="f" name="borderWidth" onChange={ e => {this.updateState(e, "borderWidth", true) } } style={{width:"50px",height:"16pt"}} ref={node => {
                                                         borderWidth = node;
                                                     }}  defaultValue={data.logo.borderWidth} />
                                                 </div>
@@ -206,7 +207,7 @@ class EditLogoScreen extends Component {
 
                                                 <div className="row">
                                                     <label htmlFor="margin">Margin:</label>
-                                                    <input type="text" className="f" name="margin" onChange={ e => {this.updateState(e, "margin", true) } } style={{width:"50px",height:"16pt"}} ref={node => {
+                                                    <input type="range" min = "0" max = "20" className="f" name="margin" onChange={ e => {this.updateState(e, "margin", true) } } style={{width:"50px",height:"16pt"}} ref={node => {
                                                         margin = node;
                                                     }}  defaultValue={data.logo.margin} />
                                                 </div>
@@ -237,7 +238,7 @@ class EditLogoScreen extends Component {
 
 
                                              <div className="col-sm-5 logoContainer">
-                                                <div id=" logo" style={{
+                                                <div id=" logo" style={{float:"left",
                                                color: this.state.color || data.logo.color, 
                                                     borderStyle:"solid" , 
                                                     background : (this.state.backgroundColor || data.logo.background), 
@@ -246,7 +247,7 @@ class EditLogoScreen extends Component {
                                                       borderColor: (this.state.borderColor || data.logo.borderColor) , 
                                                       fontSize: (this.state.fontSize ||  data.logo.fontSize) + "px" , 
                                                       borderWidth: (this.state.borderWidth || data.logo.borderWidth) + "px" , 
-                                                       borderRadius:  ( this.state.borderRadius ||   data.logo.borderRadius )+ "px"}}>{data.logo.text||this.state.text}
+                                                       borderRadius:  ( this.state.borderRadius ||   data.logo.borderRadius )+ "px"}}>{this.state.text||data.logo.text}
                                                        </div>
                                                        </div>
 

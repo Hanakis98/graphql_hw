@@ -40,8 +40,11 @@ class ViewLogoScreen extends Component {
                     if (error) return `Error! ${error.message}`;
 
                     return (
+
                         <div className="container">
-                            <div className="panel panel-default">
+                <div className="row">
+
+                            <div className="panel panel-default" >
                                 <div className="panel-heading">
                                     <h4><Link to="/">Home</Link></h4>
                                     <h3 className="panel-title">
@@ -49,9 +52,12 @@ class ViewLogoScreen extends Component {
                                     </h3>
                                 </div>
                                 <div className="panel-body">
+                                <div className="col-sm-7">
+
                                     <dl>
                                         <dt>Text:</dt>
                                         <dd>{data.logo.text}</dd>
+                                 
                                         <dt>Color:</dt>
                                         <dd>{data.logo.color}</dd>
                                         <dt>Background:</dt>
@@ -84,12 +90,43 @@ class ViewLogoScreen extends Component {
                                                 </form>
                                                 {loading && <p>Loading...</p>}
                                                 {error && <p>Error :( Please try again</p>}
+                                            
+                                                   
+
                                             </div>
+
+                                            
                                         )}
                                     </Mutation>
                                 </div>
+                                
                             </div>
+                            </div>
+                          
+
+                            <div className="col-sm-5">
+        
+                                                       <br></br>
+                                                       <br></br>
+                                                       <div className="row">
+
+<div id=" logo" style={{marginTop:"25px", float:"left",
+color: data.logo.color, 
+    borderStyle:"solid" , 
+    background : ( data.logo.background), 
+    margin: ( data.logo.margin) +5 + "px",
+     padding: ( data.logo.padding) + "px",
+      borderColor: (data.logo.borderColor) , 
+      fontSize: (  data.logo.fontSize) + "px" , 
+      borderWidth: ( data.logo.borderWidth) + "px" , 
+       borderRadius:  ( data.logo.borderRadius )+ "px"}}>{data.logo.text}
+       </div>
+       </div>
+                             </div>
+                                                    
+                             </div>
                         </div>
+                        
                     );
                 }}
             </Query>
